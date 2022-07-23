@@ -15,8 +15,8 @@ export const Landing = () => {
                     <div className="row">
                         <div className="col-md-7">
                             <h2 className="fw-bold fs-1">Explore Calgary like never before</h2>
-                            <p className="fs-6 me-5">Calgary's downtown is burgeoning with possibilities. Are you hungry? Do you want to experience art or history? Maybe socialize and dance? You can find the classics and discover hidden gems, right here, right now.</p>
-                            <Link to="/app"><button className="mt-5 btn btn-landing btn-lg btn-danger" type="button">Let's Start</button></Link>
+                            <p className="fs-6 me-5">Calgary's downtown is burgeoning with possibilities. Are you hungry? Do you want to experience art or history? Maybe socialize and dance? You can find the classics and discover "YYCecrets", right here, right now.</p>
+                            <Link to="/app"><button className="mt-5 btn btn-primary btn-lg" type="button">Let's Start</button></Link>
                         </div>
                         <div className="col-md-5">
                             <img src={skyline} className="img-fluid" />
