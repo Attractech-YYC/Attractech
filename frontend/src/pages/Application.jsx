@@ -1,7 +1,9 @@
+import Navigation from "../components/Navigation"
+
 export const Application = () => {
-    return(
+    return (
         <div>
-            sdjfhsjdhfjdfh
+            <Navigation />
         </div>
     )
 }
