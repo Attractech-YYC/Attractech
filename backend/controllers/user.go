@@ -33,7 +33,7 @@ func CreateUser(c *gin.Context) {
 		Name:       req.Name,
 		Prefrences: strings.Join(req.Prefrences, ","),
 	}
-	if err := user.Save(c, model.GetDB()); err != nil {
+	if err := user.Insert(c, model.GetDB()); err != nil {
 		fmt.Printf("save user error: %v", err)
 		util.AbortInternalError(c)
 		return

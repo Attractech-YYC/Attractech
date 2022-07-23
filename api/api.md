@@ -63,19 +63,6 @@ Response Body:
 
 ##### `POST /api/corpration`
 
-Request Body:
-```json
-{
-	"name": "",
-}
-```
-
-Response Body:
-```
-```
-
-##### `POST /api/corpration`
-
 Create a new corpration.
 
 Request Body:

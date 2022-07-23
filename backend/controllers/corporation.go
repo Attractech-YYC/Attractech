@@ -29,7 +29,7 @@ func CreateCorporation(c *gin.Context) {
 		UpdatedAt: time.Now(),
 		Name:      req.Name,
 	}
-	if err := corp.Save(c, model.GetDB()); err != nil {
+	if err := corp.Insert(c, model.GetDB()); err != nil {
 		fmt.Printf("save corp error: %v", err)
 		util.AbortInternalError(c)
 		return
@@ -40,7 +40,6 @@ func CreateCorporation(c *gin.Context) {
 func GetCorporation(c *gin.Context) {
 	corp, err := model.CorprationByName(c, model.GetDB(), c.Param("corporation_name"))
 
-	util.AbortUnimplemented(c)
 	if err != nil {
 		if util.IsNotFound(err) {
 			util.AbortNotFound(c)
