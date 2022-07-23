@@ -1,3 +1,5 @@
+import Navigation from "../components/Navigation"
+import { Footer } from "../components/Footer"
 import Button from "react-bootstrap/Button"
 import { useState } from "react";
 import { FoothillsQuestion } from "../components/FoothillsQuestion";
@@ -47,6 +49,7 @@ export const Application = () => {
 
     return (
         <div>
+            <Navigation />
             <form onSubmit={formik.handleSubmit}>
                 <h1>Welcome to Attractech!</h1>
                 Mitch Note: I think this page will be redesigned alot, but I wanna get some funcitonality down.
@@ -99,6 +102,7 @@ export const Application = () => {
                         submit={true} />
                 }
             </form>
+            <Footer />
         </div>
     )
 }
