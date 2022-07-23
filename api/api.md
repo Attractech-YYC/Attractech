@@ -63,19 +63,6 @@ Response Body:
 
 ##### `POST /api/corpration`
 
-Request Body:
-```json
-{
-	"name": "",
-}
-```
-
-Response Body:
-```
-```
-
-##### `POST /api/corpration`
-
 Create a new corpration.
 
 Request Body:
@@ -106,7 +93,11 @@ Request Body:
 	"geo": {
 		lat: 12,
 		lng: 12,
-	}
+	},
+
+	// extra
+	"cost": "",
+	"time_commitment": ""
 }
 ```
 
@@ -134,7 +125,11 @@ Request Body:
 		"geo": {
 			lat: 12,
 			lng: 12,
-		}
+		},
+
+		// extra
+		"cost": "",
+		"time_commitment": "",
 	}
 ]
 ```
