@@ -1,6 +1,7 @@
-import Navigation from '../components/Navigation'
-import skyline from "../assets/images/skyline.png"
-import { Link } from "react-router-dom"
+import Navigation from '../components/Navigation';
+import skyline from "../assets/images/skyline.png";
+import { Link } from "react-router-dom";
+import { Footer } from "../components/Footer";
 
 export const Landing = () => {
 
@@ -29,7 +30,7 @@ export const Landing = () => {
                     <div className="mx-auto row container">
                         <div className="col-md-6 p-5 mb-5 bg-light rounded-3">
                             <h3 className="fw-bold">Attractech YYC</h3>
-                            <p className="fs-6">YYC has an exciting new story that talks about local businesses in a way that is different from anywhere else. Our mission is to be the first app tourists open when they arrive in YYC. The place they go to find resilient local business.</p>
+                            <p className="fs-6">Calgary has an exciting new story that talks about local businesses in a way that is different from anywhere else. Our mission is to be the first app tourists open when they arrive in Calgary. The place they go to find resilient local business.</p>
                         </div>
                         <div className="ms-auto col-md-5 p-5 mb-5 bg-light rounded-3">
                             <h3 className="fw-bold">YYC Hacks 2022</h3>
@@ -38,6 +39,8 @@ export const Landing = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer />
 
         </div>
 
