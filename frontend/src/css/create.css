@@ -1,0 +1,18 @@
+.create-form{
+    justify-content:baseline;
+    align-items:baseline;
+    display: flexbox;
+}
+
+input, textarea {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; }
+
+
+.col-md-7 {
+    display: flexbox;
+}
+
