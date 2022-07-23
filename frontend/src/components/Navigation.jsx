@@ -10,8 +10,8 @@ function Navigation() {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="fs-5 ms-auto">
-                        <Link className="nav-link" to="/">Home</Link>
-                        <Link className="nav-link" to="/app">App</Link>
+                        {/* <Link className="nav-link" to="/">Home</Link>
+                        <Link className="nav-link" to="/app">App</Link> */}
                     </Nav>
                 </Navbar.Collapse>
             </div>
