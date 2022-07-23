@@ -1,0 +1,13 @@
+{
+  "name": "atractech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts":{
+    "start": "index.js",
+    "test":
+  },
+  "Dependencies":{
+    "react":
+  }
+}
