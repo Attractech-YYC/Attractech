@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/xid"
@@ -27,6 +28,8 @@ func CreateUser(c *gin.Context) {
 	c.BindJSON(req)
 	user := &model.User{
 		PublicID:   xid.New().String(),
+		CreatedAt:  time.Now(),
+		UpdatedAt:  time.Now(),
 		Name:       req.Name,
 		Prefrences: strings.Join(req.Prefrences, ","),
 	}
