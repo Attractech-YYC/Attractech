@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - data_db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=dc
+      - MYSQL_DATABASE=daycam
+    ports:
+      - 3306:3306
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+  redis:
+    image: redis:6.2
+    volumes:
+      - ./config/redis.conf:/redis.conf
+      - data_redis:/data
+    ports:
+      - 6379:6379
+    command: redis-server /redis.conf
+
+volumes:
+  data_db:
+  data_redis:
