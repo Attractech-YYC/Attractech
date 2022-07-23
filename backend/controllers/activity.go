@@ -30,6 +30,9 @@ type CreateActivityRequest struct {
 	EndAt           *time.Time `json:"end_at"`
 	GeoLat          float64    `json:"geo_lat"`
 	GeoLng          float64    `json:"geo_lng"`
+
+	Costs          string `json:"costs"`
+	TimeCommitment string `json:"time_commitment"`
 }
 
 func CreateActivity(c *gin.Context) {
@@ -65,6 +68,8 @@ func CreateActivity(c *gin.Context) {
 		GeoPoint: &wkb.Point{
 			Point: point,
 		},
+		TimeCommitment: req.TimeCommitment,
+		Costs:          req.Costs,
 	}
 	if activity.Type == model.ACTIVITY_TYPE_TEMPORARY {
 		activity.StartAt = sql.NullTime{Time: *req.StartAt, Valid: true}

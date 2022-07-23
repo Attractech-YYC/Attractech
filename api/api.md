@@ -93,7 +93,11 @@ Request Body:
 	"geo": {
 		lat: 12,
 		lng: 12,
-	}
+	},
+
+	// extra
+	"cost": "",
+	"time_commitment": ""
 }
 ```
 
@@ -121,7 +125,11 @@ Request Body:
 		"geo": {
 			lat: 12,
 			lng: 12,
-		}
+		},
+
+		// extra
+		"cost": "",
+		"time_commitment": "",
 	}
 ]
 ```

@@ -26,6 +26,8 @@ type ActivityResponse struct {
 	EndAt           sql.NullTime `json:"end_at"`           // end_at
 	GeoLng          float64      `json:"geo_lng"`          // geo_lng
 	GeoLat          float64      `json:"geo_lat"`          // geo_lat
+	Costs           string       `json:"costs"`            // costs
+	TimeCommitment  string       `json:"time_commitment"`  // time_commitment
 }
 
 func (a *Activity) ToModelResponse() *ActivityResponse {
@@ -42,6 +44,8 @@ func (a *Activity) ToModelResponse() *ActivityResponse {
 		EndAt:           a.EndAt,
 		GeoLng:          a.GeoPoint.X(),
 		GeoLat:          a.GeoPoint.Y(),
+		Costs:           a.Costs,
+		TimeCommitment:  a.TimeCommitment,
 	}
 }
 
