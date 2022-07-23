@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Application } from './pages/Application';
 import { Landing } from './pages/Landing'
