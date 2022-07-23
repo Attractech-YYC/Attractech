@@ -20,4 +20,4 @@ RUN npm install
 
 #layer 4
 #define the main executable 'index.js'
-CMD [ "node", "index.js" ]
+CMD [ "node", "server.js" ]
