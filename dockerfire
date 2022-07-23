@@ -1,0 +1,26 @@
+#layer 1
+#define source image (python, dockerhub, apis)
+FROM python:3.7.2-slim node: 14
+
+LABEL maintainer="Binh Kieu"
+
+#layer2
+#copies files to the file system of the image
+COPY . /app #copy everything from current dir to 'app' dir on the image
+#defines the working dir for other commands
+WORKDIR /app
+COPY package*.json ./
+COPY . .
+
+#layer3
+#run commands to setup environment for main application in the image
+RUN npm install
+RUN pip install --upgrade pip
+RUN pip install django
+RUN pip install -r requirements.txt
+
+EXPOSE - to expose an application port 
+
+#layer 4
+#define the main executable 'python app.py'
+ENTRYPOINT ['python', 'app.py'] #or CMD [ "python", "app.py" ]
