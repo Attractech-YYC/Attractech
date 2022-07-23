@@ -21,6 +21,8 @@ func main() {
 
 	api := r.Group("api")
 	controllers.CreateUserRoutes(api)
+	controllers.CreateCorporationRoutes(api)
+	controllers.CreateActivitiesRoutes(api)
 
 	fmt.Printf("Server started at 0.0.0.0:8088")
 	r.Run("0.0.0.0:8088") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
