@@ -17,7 +17,7 @@ func main() {
 		})
 	})
 
-	model.InitGlobal("root", "dc", "192.168.70.1", 3306, "Attractech")
+	model.InitGlobal("root", "dc", "3.96.135.171", 3306, "Attractech")
 
 	api := r.Group("api")
 	controllers.CreateUserRoutes(api)

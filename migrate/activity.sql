@@ -10,6 +10,9 @@ CREATE TABLE `activity` (
   `start_at` datetime DEFAULT NULL,
   `end_at` datetime DEFAULT NULL,
   `geo_point` POINT not null,
+
+  `chost` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `time_commitment` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
