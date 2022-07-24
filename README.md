@@ -26,3 +26,15 @@ You can put your project under those directories.
 - app: mobile app application project.
 - backend: backend service project.
 - frontend: frontend project.
+
+### Migration
+
+Create Migration:
+```
+migrate create -dir migrate -ext sql [schema_name|alter_name]
+```
+
+Create Golang XO:
+```
+xo schema mysql://user:pass@host:port/Attractech -o model
+```
