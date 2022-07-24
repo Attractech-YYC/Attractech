@@ -2,13 +2,14 @@ import Navigation from '../components/Navigation';
 import skyline from "../assets/images/skyline.png";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/Footer";
+import { Swipe } from "../components/Swipe"
 
 export const Landing = () => {
 
     return (
         <div className="bg-landing">
-            <Navigation />
 
+            <Navigation />
 
             <div className="container py-4">
                 <div className="p-5 mb-4 bg-light rounded-3">
@@ -19,7 +20,7 @@ export const Landing = () => {
                             <Link to="/app"><button className="mt-5 btn btn-primary btn-lg" type="button">Let's Start</button></Link>
                         </div>
                         <div className="col-md-5">
-                            <img src={skyline} className="img-fluid" />
+                            <img src={skyline} className="img-fluid img-circle" />
                         </div>
                     </div>
                 </div>
@@ -41,6 +42,8 @@ export const Landing = () => {
             </div>
 
             <Footer />
+
+            <Swipe />
 
         </div>
 
