@@ -11,18 +11,18 @@ import (
 
 // Activity represents a row from 'Attractech.activity'.
 type Activity struct {
-	ID              uint64       `json:"id"`               // id
-	UpdatedAt       time.Time    `json:"updated_at"`       // updated_at
-	CreatedAt       time.Time    `json:"created_at"`       // created_at
-	CorporationID   uint64       `json:"corporation_id"`   // corporation_id
-	CorporationName string       `json:"corporation_name"` // corporation_name
-	Name            string       `json:"name"`             // name
-	Type            string       `json:"type"`             // type
-	Classify        string       `json:"classify"`         // classify
-	StartAt         sql.NullTime `json:"start_at"`         // start_at
-	EndAt           sql.NullTime `json:"end_at"`           // end_at
-	Costs           string       `json:"costs"`            // costs
-	TimeCommitment  string       `json:"time_commitment"`  // time_commitment
+	ID              uint64       `json:"id" db:"id"`                             // id
+	UpdatedAt       time.Time    `json:"updated_at" db:"updated_at"`             // updated_at
+	CreatedAt       time.Time    `json:"created_at" db:"created_at"`             // created_at
+	CorporationID   uint64       `json:"corporation_id" db:"corporation_id"`     // corporation_id
+	CorporationName string       `json:"corporation_name" db:"corporation_name"` // corporation_name
+	Name            string       `json:"name" db:"name"`                         // name
+	Type            string       `json:"type" db:"type"`                         // type
+	Classify        string       `json:"classify" db:"classify"`                 // classify
+	StartAt         sql.NullTime `json:"start_at" db:"start_at"`                 // start_at
+	EndAt           sql.NullTime `json:"end_at" db:"end_at"`                     // end_at
+	Costs           string       `json:"costs" db:"costs"`                       // costs
+	TimeCommitment  string       `json:"time_commitment" db:"time_commitment"`   // time_commitment
 	// xo fields
 	_exists, _deleted bool
 }
