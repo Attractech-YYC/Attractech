@@ -21,7 +21,7 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
-          { user ? <Navbar.Text>Signed in as: <span className="text-primary">{user}</span></Navbar.Text> : <span>s</span>}
+          { user ? <Navbar.Text>Signed in as: <span className="text-primary">{user}</span></Navbar.Text> : <span></span>}
         </Navbar.Collapse>
       </Container>
     </Navbar>

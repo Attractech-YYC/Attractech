@@ -59,15 +59,35 @@ func BatchToActivityResponse(activities []*Activity) []*ActivityResponse {
 }
 
 func QueryAllActivitiesIn(ctx context.Context, db *sqlx.DB, prefrences []string) ([]*Activity, error) {
-	var rets []*Activity
-	err := sqlx.Select(
-		db,
-		&rets,
-		`select * from activity where classify in (?)`,
-		prefrences,
-	)
+	const sqlstr = `SELECT ` +
+		`id, updated_at, created_at, corporation_id, corporation_name, name, type, classify, start_at, end_at, costs, time_commitment ` +
+		`FROM Attractech.activity ` +
+		`WHERE classify in (?)`
+
+	realSql, args, err := sqlx.In(sqlstr, prefrences)
 	if err != nil {
 		return nil, err
 	}
-	return rets, nil
+
+	rows, err := db.QueryContext(ctx, realSql, args...)
+	if err != nil {
+		return nil, logerror(err)
+	}
+	defer rows.Close()
+	// process
+	var res []*Activity
+	for rows.Next() {
+		a := Activity{
+			_exists: true,
+		}
+		// scan
+		if err := rows.Scan(&a.ID, &a.UpdatedAt, &a.CreatedAt, &a.CorporationID, &a.CorporationName, &a.Name, &a.Type, &a.Classify, &a.StartAt, &a.EndAt, &a.Costs, &a.TimeCommitment); err != nil {
+			return nil, logerror(err)
+		}
+		res = append(res, &a)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, logerror(err)
+	}
+	return res, nil
 }

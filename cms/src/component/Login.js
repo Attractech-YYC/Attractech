@@ -32,7 +32,6 @@ class Login extends React.Component {
 
   render() {
     let public_id = localStorage.getItem("corp_public_id")
-    console.log(public_id);
     if (public_id) {
       window.location.href = "/activities";
       return;

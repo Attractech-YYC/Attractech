@@ -5,20 +5,39 @@ import Container from 'react-bootstrap/Container';
 
 function Activities() {
   const [ show, setShow ] = useState(false);
+  const [ first, setFirst] = useState(true);
   const [ name, setName ] = useState("");
   const [ classify, setClassify ] = useState("");
   const [ costs, setCosts ] = useState("");
   const [ timeCommitment, setTimeCommitment ] = useState("");
+  const [ activities, setActivities ] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleNameChange = (e) => setName(e.target.value);
   const handleClassifyChange = (e) => setClassify(e.target.value);
   const handleCostsChange = (e) => setCosts(e.target.value);
   const handleTimeCommitmenttsChange = (e) => setTimeCommitment(e.target.value);
+
+  let user = localStorage.getItem("corp_name");
+  if (!user) {
+    window.location.href = "/";
+    return;
+  }
+
+  const getActivities = () => {
+    axios.get("/corporation/"+user+"/activity")
+    .then((res) => {
+        setActivities(res.data);
+    })
+  }
+  if (first) {
+    getActivities();
+    setFirst(false);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    let user = localStorage.getItem("corp_name");
     axios.post("/activity", {
       corporation_name: user,
       show: show,
@@ -26,14 +45,28 @@ function Activities() {
       type: "permanent",
       classify: classify,
       costs: costs,
-      timeCommitment: timeCommitment,
+      time_commitment: timeCommitment,
     }).then((res) => {
         console.log("ok", res)
         setShow(false);
+        getActivities();
     })
     .catch((res) => {
         console.log("error", res);
     })
+  }
+
+  var rows = [];
+  for (var idx in activities) {
+    rows.push(
+      <tr key={idx}>
+        <td>{activities[idx].id}</td>
+        <td>{activities[idx].name}</td>
+        <td>{activities[idx].classify}</td>
+        <td>{activities[idx].costs}</td>
+        <td>{activities[idx].time_commitment}</td>
+      </tr>
+    );
   }
 
   return (
@@ -87,25 +120,13 @@ function Activities() {
       <thead>
         <tr>
           <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
+          <th>Name</th>
+          <th>Classify</th>
+          <th>Costs</th>
+          <th>Time Commitment</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-      </tbody>
+      <tbody>{rows}</tbody>
     </Table>
         </Col>
       </Row>

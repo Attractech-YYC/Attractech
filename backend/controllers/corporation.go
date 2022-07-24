@@ -14,6 +14,7 @@ import (
 func CreateCorporationRoutes(r gin.IRouter) {
 	r.POST("/corporation", CreateCorporation)
 	r.GET("/corporation/:corporation_name", GetCorporation)
+	r.GET("/corporation/:corporation_name/activity", GetCorpActivity)
 }
 
 type CreateCorporationRequest struct {
@@ -49,4 +50,14 @@ func GetCorporation(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, corp.ToModelResponse())
+}
+
+func GetCorpActivity(c *gin.Context) {
+	activities, err := model.ActivityByCorporationName(c, model.GetDB(), c.Param("corporation_name"))
+	if err != nil {
+		fmt.Printf("query all activities in %v : %v", c.Param("corporation_name"), err)
+		util.AbortInternalError(c)
+		return
+	}
+	c.JSON(http.StatusOK, model.BatchToActivityResponse(activities))
 }
