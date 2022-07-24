@@ -14,28 +14,22 @@ export const App = () => {
     const [savedLists, setSavedLists] = useState([]);
 
     useEffect(() => {
-        if(currentPage === "Landing" && savedLists.length != 0){
+        if(currentPage === "Dashboard" && savedLists.length != 0){
             let previousString = localStorage.getItem("savedLists")
             let previousData = []
-            console.log(previousString)
             if(previousString != null){
                 previousData = JSON.parse(previousString)
             }
             previousData.push(savedLists)
-            console.log("Saving data")
             localStorage.setItem("savedLists", JSON.stringify(previousData))
-            console.log(localStorage.getItem("savedLists"))
             setSavedLists([])
-            setCurrentPage("Dashboard")
+            // setCurrentPage("Dashboard")
         }
     },[currentPage])
 
     const updateLists = (newItem) => {
-        console.log("Called from " + newItem.name)
         let array2 = savedLists;
         array2.push(newItem);
-        setSavedLists(array2)
-        console.log(savedLists)
     }
     
 

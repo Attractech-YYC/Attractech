@@ -39,7 +39,9 @@ body {
 
 .swipe-card-inner {
     position: absolute;
-    height: 500px;
+
+    top: 0;
+    left: 0;
 }
 
 
@@ -83,8 +85,14 @@ body {
     position: fixed;
     bottom: 70px;
     width: 100%;
+    z-index: 100;
 }
 
 .footer-space {
-    margin-bottom: 70px;
+    margin-bottom: 200px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
 }
