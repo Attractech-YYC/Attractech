@@ -23,7 +23,8 @@ export const App = () => {
             previousData.push(savedLists)
             localStorage.setItem("savedLists", JSON.stringify(previousData))
             setSavedLists([])
-            // setCurrentPage("Dashboard")
+            setCurrentPage("Landing")
+            setCurrentPage("Dashboard")
         }
     },[currentPage])
 
