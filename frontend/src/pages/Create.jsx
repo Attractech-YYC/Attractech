@@ -22,16 +22,16 @@ export const Create = ({movePage}) => {
             classify: classify,
             costs: costs,
             timeCommitment: timeCommitment,
-          })
-          console.log(res)
+        })
+        console.log(res)
     }
 
     return (
-        <div>
-            <Navigation />
+        <div class="bg-landing">
+            <Navigation movePage={movePage}/>
             <div className="create">
                 <div className="container py-4">
-                    <div className="p-5 mb-4 bg-light rounded-3">
+                    <div className="p-5 bg-light rounded-3 footer-space">
                         <div className="row">
                             <div className="col-md-7">
                                 <form className="create-form" onSubmit={handleSubmit}>
@@ -46,19 +46,16 @@ export const Create = ({movePage}) => {
                                         <option value="action">Action1</option>
                                         <option value="action2">Action2</option>
                                         <option value="action3">Action</option>
-                                    </select>
-                                   
-                                    
+                                    </select>   
                                     <label className="fw-bold fs-3">Cost</label>
                                     <input type='text' value={cost} onChange={(e) => setCost(e.target.value)} />
                                     <label className="fw-bold fs-3">Time Commitment</label>
                                     <input type='text' value={timeCommitment} onChange={(e) => setTimeCommitment(e.target.value)} />
-                                    
                                 </form>
-                                <button className="mt-5 btn btn-primary btn-lg" onClick={() => {handleSubmit()}}>Submit</button>
+                                <button className="mt-5 btn btn-primary btn-lg" onClick={() => { handleSubmit() }}>Submit</button>
                             </div>
                             <div className="col-md-5">
-                                <img src={skyline} className="img-fluid" />
+                                <img src={skyline} className="img-fluid img-circle" />
                             </div>
                         </div>
                     </div>
