@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export const App = () =>{
 
-    const [currentPage, setCurrentPage] = useState("Landing");
+    const [currentPage, setCurrentPage] = useState("Create");
 
     return(
         <div>
