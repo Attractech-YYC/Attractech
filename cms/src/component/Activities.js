@@ -8,7 +8,7 @@ function Activities() {
   const [ first, setFirst] = useState(true);
   const [ name, setName ] = useState("");
   const [ desc, setDesc ] = useState("");
-  const [ classify, setClassify ] = useState("");
+  const [ classify, setClassify ] = useState("Food");
   const [ costs, setCosts ] = useState("Free");
   const [ timeCommitment, setTimeCommitment ] = useState("15 mins");
   const [ activities, setActivities ] = useState([]);
