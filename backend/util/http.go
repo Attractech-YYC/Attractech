@@ -23,5 +23,5 @@ func AbortInternalError(c *gin.Context) {
 }
 
 func AbortNotFound(c *gin.Context) {
-	c.JSON(http.StatusInternalServerError, NewError(http.StatusInternalServerError, "resource not found"))
+	c.JSON(http.StatusNotFound, NewError(http.StatusNotFound, "resource not found"))
 }

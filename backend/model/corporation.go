@@ -5,7 +5,7 @@ type CorprationResponse struct {
 	Name     string `json:"name"`
 }
 
-func (c *Corpration) ToModelResponse() *CorprationResponse {
+func (c *Corporation) ToModelResponse() *CorprationResponse {
 	return &CorprationResponse{
 		PublicID: c.PublicID,
 		Name:     c.Name,

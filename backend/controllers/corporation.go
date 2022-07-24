@@ -23,7 +23,7 @@ type CreateCorporationRequest struct {
 func CreateCorporation(c *gin.Context) {
 	req := &CreateCorporationRequest{}
 	c.BindJSON(req)
-	corp := &model.Corpration{
+	corp := &model.Corporation{
 		PublicID:  xid.New().String(),
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),
@@ -38,8 +38,7 @@ func CreateCorporation(c *gin.Context) {
 }
 
 func GetCorporation(c *gin.Context) {
-	corp, err := model.CorprationByName(c, model.GetDB(), c.Param("corporation_name"))
-
+	corp, err := model.CorporationByName(c, model.GetDB(), c.Param("corporation_name"))
 	if err != nil {
 		if util.IsNotFound(err) {
 			util.AbortNotFound(c)

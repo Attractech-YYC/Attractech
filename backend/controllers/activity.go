@@ -39,7 +39,7 @@ func CreateActivity(c *gin.Context) {
 	req := &CreateActivityRequest{}
 	c.BindJSON(req)
 
-	corp, err := model.CorprationByName(c, model.GetDB(), req.CorporationName)
+	corp, err := model.CorporationByName(c, model.GetDB(), req.CorporationName)
 	if err != nil {
 		if util.IsNotFound(err) {
 			util.AbortNotFound(c)
