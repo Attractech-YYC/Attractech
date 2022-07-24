@@ -38,7 +38,7 @@ export const List = ({ movePage, list }) => {
 
             <div className="back-button col-8">
                 <div className="p-2 bg-light rounded-3 mt-5 w-25 mx-auto">
-                    <Button size="lg w-100" onClick={() => { movePage("Landing") }}>Back to Dashboard</Button>
+                    <Button size="lg w-100" onClick={() => { movePage("Dashboard") }}>Back to Dashboard</Button>
                 </div>
 
             </div>
