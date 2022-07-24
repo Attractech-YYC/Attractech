@@ -39,7 +39,7 @@ body {
 
 .swipe-card-inner {
     position: absolute;
-    height: 500px;
+
     top: 0;
     left: 0;
 }
