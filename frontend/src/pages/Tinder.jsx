@@ -15,6 +15,8 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
     const [currentPage, setPage] = useState("Tinder");
 
+    const [error, setError] = useState(undefined);
+
 
     const [currentList, setCurrentList] = useState([]);
 
@@ -22,7 +24,9 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
         const getData = async () => {
             console.log("https://attractech.heimonsy.com/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment)
             let res = await axios.get("https://attractech.heimonsy.com/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment);
-            //TODO: Pass the activity and filterData to the API and filter the results
+            if(res.data.length == 0){
+                setError("No activities found! Please try again later.")
+            }
             console.log(res.data)
             setData(res.data)
         }
@@ -50,6 +54,10 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
                         <div className="col-8">
                             {
                                 data == undefined && <div className="p-5 bg-light rounded-3 footer-space"><h1 className="fw-bold fs-1">Loading...</h1></div>
+                            }
+                            {
+                                error != undefined &&
+                                <div className="p-5 bg-light rounded-3 footer-space"><h1 className="fw-bold fs-1">{error}</h1></div>
                             }
                             {
                                 data != undefined &&
