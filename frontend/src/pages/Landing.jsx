@@ -36,7 +36,6 @@ export const Landing = ({ movePage: setPage = () => { }, setData = () => { } }) 
                 if (i < show.length) {
                     inital[i + 1] = true;
                     setShow(inital);
-                    console.log(inital);
                     break;
                 }
             }

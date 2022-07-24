@@ -8,7 +8,7 @@ import { BasicButtonExample as DropdownCreate } from "../components/BasicButtonE
 import { Dropdown } from "react-bootstrap";
 
 
-export const Create = () => {
+export const Create = ({movePage}) => {
     const [corporation, setCorporation] = useState('');
     const [name, setName] = useState('');
     const [type, setType] = useState('');
@@ -28,7 +28,7 @@ export const Create = () => {
 
     return (
         <div class="bg-landing">
-            <Navigation />
+            <Navigation movePage={movePage}/>
             <div className="create">
                 <div className="container py-4">
                     <div className="p-5 bg-light rounded-3 footer-space">
