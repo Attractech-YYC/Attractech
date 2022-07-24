@@ -19,3 +19,15 @@ input, textarea {
 label {
     margin: 10px;
 }
+
+.col-md-5 {
+    line-height: 200px;
+  height: 200px;
+  text-align: center;
+}
+
+.img-fluid {
+    top: 50%;
+    bottom:50%;
+    position: relative
+}
