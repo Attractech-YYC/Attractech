@@ -1,15 +1,17 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
 
-function Navigation() {
+function Navigation({ movePage }) {
     return (
-        <Navbar className="mb-5" bg="dark" variant="dark" expand="md">
+        <Navbar className="mb-4 header mt-auto" bg="dark" variant="dark" expand="md">
             <div className="container">
-                <Navbar.Brand className=" fs-3 brand-name navbar-brand" href="#home">Attractech</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Brand className=" fs-3 brand-name navbar-brand" href="/">YYSecrets</Navbar.Brand>
+                {/* <Navbar.Toggle aria-controls="navbarScroll" /> */}
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="fs-5 ms-auto">
+                        <Button onClick={() =>{movePage("Landing")}}>Home</Button>
+                        <Button onClick={() =>{movePage("Create")}}>Create</Button>
                         {/* <Link className="nav-link" to="/">Home</Link>
                         <Link className="nav-link" to="/app">App</Link> */}
                     </Nav>
