@@ -3,7 +3,9 @@
 }
 
 .bg-landing {
-    background-color: #eb4634;
+    /* background-color: #eb4634; */
+    background: rgb(10,14,135);
+    background: linear-gradient(90deg, rgba(10,14,135,1) 2%, rgba(112,16,181,1) 31%, rgba(203,20,158,1) 70%, rgba(252,25,73,1) 98%);
     min-height: 100vh;
 }
 
@@ -73,3 +75,12 @@ body {
     margin-bottom: 80px;
 }
 
+.dashboard-button {
+    width: 140px;
+}
+
+.back-button {
+    position: fixed;
+    bottom: 70px;
+    width: 100%;
+}
