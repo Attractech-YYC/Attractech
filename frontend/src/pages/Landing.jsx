@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 import Navigation from "../components/Navigation.jsx";
 import { Footer } from "../components/Footer";
+import { Swipe } from "../components/Swipe"
 
 export const Landing = () => {
 
@@ -39,7 +40,7 @@ export const Landing = () => {
     }
 
     return (
-        <div>
+        <div className="bg-landing">
             <Navigation />
             <div className="container py-4">
                 <div className="p-5 mb-4 bg-light rounded-3">
@@ -50,7 +51,7 @@ export const Landing = () => {
                             {/* <Link to="/app"><button className="mt-5 btn btn-landing btn-lg btn-danger" type="button">Let's Start</button></Link> */}
                         </div>
                         <div className="col-md-5">
-                            <img src={skyline} className="img-fluid" />
+                            <img src={skyline} className="img-fluid img-circle" />
                         </div>
                     </div>
                 </div>

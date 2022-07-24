@@ -19,6 +19,25 @@ body {
     font-family:"Montserrat";
 }
 
+.img-circle {
+    border-radius: 50%
+}
+
+.btn-circle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.swipe-card {
+    width: 350px;
+    position: relative;
+}
+
+.swipe-card-inner {
+    position: absolute;
+    height: 500px;
+}
 
 
 
