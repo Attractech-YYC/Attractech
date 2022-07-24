@@ -9,7 +9,7 @@ import Navigation from "../components/Navigation.jsx";
 import { Footer } from "../components/Footer";
 import { Tinder } from "./Tinder"
 
-export const Landing = ({movePage: setPage = () => {}, setData = () =>{} }) => {
+export const Landing = ({ movePage: setPage = () => { }, setData = () => { } }) => {
 
     const [show, setShow] = useState([true, false]);
 
@@ -64,7 +64,7 @@ export const Landing = ({movePage: setPage = () => {}, setData = () =>{} }) => {
                 </div>
 
 
-                <div className="col-10 col-lg-5 ms-lg-2 mb-4">
+                <div className="col-10 col-lg-5 ms-lg-2 mb-6">
                     <div className="p-5 bg-light rounded-3 text-center">
                         <form onSubmit={formik.handleSubmit}>
                             {show[0] &&
