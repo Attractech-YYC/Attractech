@@ -5,7 +5,7 @@ import { Tinder } from './pages/Tinder'
 import { useState } from "react";
 import { useEffect } from "react";
 
-export const App = () =>{
+export const App = () => {
 
 
     const [currentPage, setCurrentPage] = useState("Landing");
@@ -39,8 +39,8 @@ export const App = () =>{
     }
     
 
-    return(
-        <div>
+    return (
+        <div className="vw-100 vh-100">
             {currentPage === "Landing" && <Landing movePage={setCurrentPage} setData={setFilterData} />}
             {currentPage === "Create" && <Create movePage={setCurrentPage} />}
             {currentPage === "Dashboard" && <Dashboard movePage={setCurrentPage} setData={setActivity} />}
