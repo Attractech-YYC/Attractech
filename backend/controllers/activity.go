@@ -8,8 +8,6 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/twpayne/go-geom"
-	"github.com/twpayne/go-geom/encoding/wkb"
 	"github.com/untold-titan/Attractech/backend/model"
 	"github.com/untold-titan/Attractech/backend/util"
 )
@@ -50,12 +48,12 @@ func CreateActivity(c *gin.Context) {
 		return
 	}
 
-	point, err := geom.NewPoint(geom.XY).SetCoords(geom.Coord{float64(req.GeoLng), float64(req.GeoLat)})
-	if err != nil {
-		fmt.Printf("create geo point error: %v", err)
-		util.AbortInvalidArgs(c)
-		return
-	}
+	// point, err := geom.NewPoint(geom.XY).SetCoords(geom.Coord{float64(req.GeoLng), float64(req.GeoLat)})
+	// if err != nil {
+	// fmt.Printf("create geo point error: %v", err)
+	// util.AbortInvalidArgs(c)
+	// return
+	// }
 
 	activity := &model.Activity{
 		CreatedAt:       time.Now(),
@@ -65,9 +63,9 @@ func CreateActivity(c *gin.Context) {
 		Classify:        req.Classify,
 		CorporationName: corp.Name,
 		CorporationID:   corp.ID,
-		GeoPoint: &wkb.Point{
-			Point: point,
-		},
+		// GeoPoint: &wkb.Point{
+		// Point: point,
+		// },
 		TimeCommitment: req.TimeCommitment,
 		Costs:          req.Costs,
 	}
@@ -78,6 +76,7 @@ func CreateActivity(c *gin.Context) {
 	if err := activity.Insert(c, model.GetDB()); err != nil {
 		fmt.Printf("creagte corporation error: %v", err)
 		util.AbortInternalError(c)
+		return
 	}
 	c.Status(http.StatusNoContent)
 }

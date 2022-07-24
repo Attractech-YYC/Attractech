@@ -9,7 +9,7 @@ CREATE TABLE `activity` (
   `classify` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `start_at` datetime DEFAULT NULL,
   `end_at` datetime DEFAULT NULL,
-  `geo_point` POINT not null,
+  -- `geo_point` POINT DEFAULT NULL,
 
   `costs` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `time_commitment` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',

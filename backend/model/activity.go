@@ -24,10 +24,10 @@ type ActivityResponse struct {
 	Classify        string       `json:"classify"`         // classify
 	StartAt         sql.NullTime `json:"start_at"`         // start_at
 	EndAt           sql.NullTime `json:"end_at"`           // end_at
-	GeoLng          float64      `json:"geo_lng"`          // geo_lng
-	GeoLat          float64      `json:"geo_lat"`          // geo_lat
-	Costs           string       `json:"costs"`            // costs
-	TimeCommitment  string       `json:"time_commitment"`  // time_commitment
+	// GeoLng          float64      `json:"geo_lng"`          // geo_lng
+	// GeoLat          float64      `json:"geo_lat"`          // geo_lat
+	Costs          string `json:"costs"`           // costs
+	TimeCommitment string `json:"time_commitment"` // time_commitment
 }
 
 func (a *Activity) ToModelResponse() *ActivityResponse {
@@ -42,10 +42,10 @@ func (a *Activity) ToModelResponse() *ActivityResponse {
 		Classify:        a.Classify,
 		StartAt:         a.StartAt,
 		EndAt:           a.EndAt,
-		GeoLng:          a.GeoPoint.X(),
-		GeoLat:          a.GeoPoint.Y(),
-		Costs:           a.Costs,
-		TimeCommitment:  a.TimeCommitment,
+		// GeoLng:          a.GeoPoint.X(),
+		// GeoLat:          a.GeoPoint.Y(),
+		Costs:          a.Costs,
+		TimeCommitment: a.TimeCommitment,
 	}
 }
 

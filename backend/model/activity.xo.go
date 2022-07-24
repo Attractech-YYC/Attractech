@@ -21,7 +21,6 @@ type Activity struct {
 	Classify        string       `json:"classify"`         // classify
 	StartAt         sql.NullTime `json:"start_at"`         // start_at
 	EndAt           sql.NullTime `json:"end_at"`           // end_at
-	GeoPoint        Point        `json:"geo_point"`        // geo_point
 	Costs           string       `json:"costs"`            // costs
 	TimeCommitment  string       `json:"time_commitment"`  // time_commitment
 	// xo fields
@@ -49,13 +48,13 @@ func (a *Activity) Insert(ctx context.Context, db DB) error {
 	}
 	// insert (primary key generated and returned by database)
 	const sqlstr = `INSERT INTO Attractech.activity (` +
-		`updated_at, created_at, corporation_id, corporation_name, name, type, classify, start_at, end_at, geo_point, costs, time_commitment` +
+		`updated_at, created_at, corporation_id, corporation_name, name, type, classify, start_at, end_at, costs, time_commitment` +
 		`) VALUES (` +
-		`?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?` +
+		`?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?` +
 		`)`
 	// run
-	logf(sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.GeoPoint, a.Costs, a.TimeCommitment)
-	res, err := db.ExecContext(ctx, sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.GeoPoint, a.Costs, a.TimeCommitment)
+	logf(sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.Costs, a.TimeCommitment)
+	res, err := db.ExecContext(ctx, sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.Costs, a.TimeCommitment)
 	if err != nil {
 		return logerror(err)
 	}
@@ -80,11 +79,11 @@ func (a *Activity) Update(ctx context.Context, db DB) error {
 	}
 	// update with primary key
 	const sqlstr = `UPDATE Attractech.activity SET ` +
-		`updated_at = ?, created_at = ?, corporation_id = ?, corporation_name = ?, name = ?, type = ?, classify = ?, start_at = ?, end_at = ?, geo_point = ?, costs = ?, time_commitment = ? ` +
+		`updated_at = ?, created_at = ?, corporation_id = ?, corporation_name = ?, name = ?, type = ?, classify = ?, start_at = ?, end_at = ?, costs = ?, time_commitment = ? ` +
 		`WHERE id = ?`
 	// run
-	logf(sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.GeoPoint, a.Costs, a.TimeCommitment, a.ID)
-	if _, err := db.ExecContext(ctx, sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.GeoPoint, a.Costs, a.TimeCommitment, a.ID); err != nil {
+	logf(sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.Costs, a.TimeCommitment, a.ID)
+	if _, err := db.ExecContext(ctx, sqlstr, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.Costs, a.TimeCommitment, a.ID); err != nil {
 		return logerror(err)
 	}
 	return nil
@@ -106,15 +105,15 @@ func (a *Activity) Upsert(ctx context.Context, db DB) error {
 	}
 	// upsert
 	const sqlstr = `INSERT INTO Attractech.activity (` +
-		`id, updated_at, created_at, corporation_id, corporation_name, name, type, classify, start_at, end_at, geo_point, costs, time_commitment` +
+		`id, updated_at, created_at, corporation_id, corporation_name, name, type, classify, start_at, end_at, costs, time_commitment` +
 		`) VALUES (` +
-		`?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?` +
+		`?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?` +
 		`)` +
 		` ON DUPLICATE KEY UPDATE ` +
-		`updated_at = VALUES(updated_at), created_at = VALUES(created_at), corporation_id = VALUES(corporation_id), corporation_name = VALUES(corporation_name), name = VALUES(name), type = VALUES(type), classify = VALUES(classify), start_at = VALUES(start_at), end_at = VALUES(end_at), geo_point = VALUES(geo_point), costs = VALUES(costs), time_commitment = VALUES(time_commitment)`
+		`updated_at = VALUES(updated_at), created_at = VALUES(created_at), corporation_id = VALUES(corporation_id), corporation_name = VALUES(corporation_name), name = VALUES(name), type = VALUES(type), classify = VALUES(classify), start_at = VALUES(start_at), end_at = VALUES(end_at), costs = VALUES(costs), time_commitment = VALUES(time_commitment)`
 	// run
-	logf(sqlstr, a.ID, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.GeoPoint, a.Costs, a.TimeCommitment)
-	if _, err := db.ExecContext(ctx, sqlstr, a.ID, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.GeoPoint, a.Costs, a.TimeCommitment); err != nil {
+	logf(sqlstr, a.ID, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.Costs, a.TimeCommitment)
+	if _, err := db.ExecContext(ctx, sqlstr, a.ID, a.UpdatedAt, a.CreatedAt, a.CorporationID, a.CorporationName, a.Name, a.Type, a.Classify, a.StartAt, a.EndAt, a.Costs, a.TimeCommitment); err != nil {
 		return logerror(err)
 	}
 	// set exists
@@ -149,7 +148,7 @@ func (a *Activity) Delete(ctx context.Context, db DB) error {
 func ActivityByID(ctx context.Context, db DB, id uint64) (*Activity, error) {
 	// query
 	const sqlstr = `SELECT ` +
-		`id, updated_at, created_at, corporation_id, corporation_name, name, type, classify, start_at, end_at, geo_point, costs, time_commitment ` +
+		`id, updated_at, created_at, corporation_id, corporation_name, name, type, classify, start_at, end_at, costs, time_commitment ` +
 		`FROM Attractech.activity ` +
 		`WHERE id = ?`
 	// run
@@ -157,7 +156,7 @@ func ActivityByID(ctx context.Context, db DB, id uint64) (*Activity, error) {
 	a := Activity{
 		_exists: true,
 	}
-	if err := db.QueryRowContext(ctx, sqlstr, id).Scan(&a.ID, &a.UpdatedAt, &a.CreatedAt, &a.CorporationID, &a.CorporationName, &a.Name, &a.Type, &a.Classify, &a.StartAt, &a.EndAt, &a.GeoPoint, &a.Costs, &a.TimeCommitment); err != nil {
+	if err := db.QueryRowContext(ctx, sqlstr, id).Scan(&a.ID, &a.UpdatedAt, &a.CreatedAt, &a.CorporationID, &a.CorporationName, &a.Name, &a.Type, &a.Classify, &a.StartAt, &a.EndAt, &a.Costs, &a.TimeCommitment); err != nil {
 		return nil, logerror(err)
 	}
 	return &a, nil

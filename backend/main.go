@@ -19,8 +19,7 @@ func main() {
 
 	model.InitGlobal("root", "dc", "3.96.135.171", 3306, "Attractech")
 
-	api := r.Group("api")
-	api.Use(func(c *gin.Context) {
+	r.Use(func(c *gin.Context) {
 		c.Header("Access-Control-Allow-Origin", "*")
 		c.Header("Access-Control-Allow-Credentials", "true")
 
@@ -37,6 +36,8 @@ func main() {
 		}
 		c.Next()
 	})
+
+	api := r.Group("api")
 	controllers.CreateUserRoutes(api)
 	controllers.CreateCorporationRoutes(api)
 	controllers.CreateActivitiesRoutes(api)

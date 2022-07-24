@@ -5,6 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 
 function Header() {
+  let user = localStorage.getItem("corp_name");
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -19,9 +21,7 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Signed in as: <span className="text-primary">Mark Otto</span>
-          </Navbar.Text>
+          { user ? <Navbar.Text>Signed in as: <span className="text-primary">{user}</span></Navbar.Text> : <span>s</span>}
         </Navbar.Collapse>
       </Container>
     </Navbar>
