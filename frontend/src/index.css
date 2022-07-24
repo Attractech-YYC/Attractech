@@ -4,6 +4,7 @@
 
 .bg-landing {
     background-color: #eb4634;
+    min-height: 100vh;
 }
 
 .btn-red {
