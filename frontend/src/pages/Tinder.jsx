@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import Navigation from "../components/Navigation";
 import { Footer } from "../components/Footer";
+import { List } from "./List";
 
 
 //I called this Tinder because it has cards that you can swipe left or right, just like Tinder.
@@ -12,11 +13,15 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
     const [data, setData] = useState(undefined);
 
+    const [currentPage, setPage] = useState("Tinder");
+
+
     const [currentList, setCurrentList] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
-            let res = await axios.get("http://3.96.135.171:8088/api/activity/filter?prefrences=" + activity)
+            console.log("http://3.96.135.171:8088/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment)
+            let res = await axios.get("http://3.96.135.171:8088/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment);
             //TODO: Pass the activity and filterData to the API and filter the results
             console.log(res.data)
             setData(res.data)
@@ -24,7 +29,7 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
         getData()
     }, [])
 
-    const setLists =(item)=>{
+    const setLists = (item) => {
         let array2 = currentList
         array2.push(item)
         setCurrentList(array2)
@@ -34,42 +39,54 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
 
     return (
-        <div className="bg-landing">
-            <Navigation movePage={movePage} />
-            <div className="row justify-content-center text-center vh-100">
-                <div className="col-8">
-                    {
-                        data == undefined && <div className="p-5 bg-light rounded-3 footer-space"><h1 className="fw-bold fs-1">Loading...</h1></div>
-                    }
-                    {
-                        data != undefined &&
-                        <div className="container py-4">
-                            {data.map((element, index) => {
-                                return <SwipeCard
-                                    key={index}
-                                    setPref={setLists}
-                                    name={element.name}
-                                    desc={element.description}
-                                    cost={element.costs}
-                                    time={element.time_commitment}
-                                    index={index} />
-                            })}
+
+        // Main Page
+        <>
+            {
+                currentPage === "Tinder" &&
+                <div className="bg-landing">
+                    <Navigation movePage={movePage} />
+                    <div className="row justify-content-center text-center vh-100">
+                        <div className="col-8">
+                            {
+                                data == undefined && <div className="p-5 bg-light rounded-3 footer-space"><h1 className="fw-bold fs-1">Loading...</h1></div>
+                            }
+                            {
+                                data != undefined &&
+                                <div className="container py-4">
+                                    {data.map((element, index) => {
+                                        return <SwipeCard
+                                            key={index}
+                                            setPref={setLists}
+                                            name={element.name}
+                                            desc={element.description}
+                                            cost={element.costs}
+                                            time={element.time_commitment}
+                                            index={index}
+                                            movePage={setPage} />
+                                    })}
+                                </div>
+                            }
+
                         </div>
-                    }
 
-                </div>
+                        <div className="back-button col-8">
+                            <div className="p-2 bg-light rounded-3 mt-5 w-25 mx-auto">
+                                <Button size="lg w-100" onClick={() => { movePage("Dashboard") }}>Back</Button>
+                            </div>
 
-                <div className="back-button col-8">
-                    <div className="p-2 bg-light rounded-3 mt-5 w-25 mx-auto">
-                        <Button size="lg w-100" onClick={() => { movePage("Landing") }}>Back</Button>
+                        </div>
+
+
                     </div>
-
+                    <Footer />
                 </div>
-
-
-            </div>
-            <Footer />
-        </div>
+            }
+            {
+                currentPage === "List" &&
+                <List movePage={movePage} list={currentList}/>
+            }
+        </>
 
 
     )
