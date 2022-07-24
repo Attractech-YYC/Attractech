@@ -9,12 +9,12 @@ import (
 
 // UserLike represents a row from 'Attractech.user_like'.
 type UserLike struct {
-	ID           uint64    `json:"id"`             // id
-	UpdatedAt    time.Time `json:"updated_at"`     // updated_at
-	CreatedAt    time.Time `json:"created_at"`     // created_at
-	UserID       uint64    `json:"user_id"`        // user_id
-	UserPublicID string    `json:"user_public_id"` // user_public_id
-	ActivityID   uint64    `json:"activity_id"`    // activity_id
+	ID           uint64    `json:"id" db:"id"`                         // id
+	UpdatedAt    time.Time `json:"updated_at" db:"updated_at"`         // updated_at
+	CreatedAt    time.Time `json:"created_at" db:"created_at"`         // created_at
+	UserID       uint64    `json:"user_id" db:"user_id"`               // user_id
+	UserPublicID string    `json:"user_public_id" db:"user_public_id"` // user_public_id
+	ActivityID   uint64    `json:"activity_id" db:"activity_id"`       // activity_id
 	// xo fields
 	_exists, _deleted bool
 }

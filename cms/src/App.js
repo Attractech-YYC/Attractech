@@ -7,13 +7,15 @@ import Login from './component/Login.js';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Container } from 'react-bootstrap';
 
+import "./App.css";
+
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Header></Header>
-        <Container>
+        <Container className="content-container">
           <Routes>
             <Route path="/" element={<Login />}> </Route>
             <Route path="/activities" element={<Activities />}> </Route>

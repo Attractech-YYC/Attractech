@@ -1,1 +1,10 @@
-.login-form {width: 512px;}
+.login-form {
+	width: 512px;
+	display: flex;
+	padding-top: 35px;
+}
+
+
+.form-row {
+	max-width: 512px;
+}

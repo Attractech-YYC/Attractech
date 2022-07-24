@@ -9,12 +9,12 @@ import (
 
 // User represents a row from 'Attractech.user'.
 type User struct {
-	ID         uint64    `json:"id"`         // id
-	UpdatedAt  time.Time `json:"updated_at"` // updated_at
-	CreatedAt  time.Time `json:"created_at"` // created_at
-	PublicID   string    `json:"public_id"`  // public_id
-	Name       string    `json:"name"`       // name
-	Prefrences string    `json:"prefrences"` // prefrences
+	ID         uint64    `json:"id" db:"id"`                 // id
+	UpdatedAt  time.Time `json:"updated_at" db:"updated_at"` // updated_at
+	CreatedAt  time.Time `json:"created_at" db:"created_at"` // created_at
+	PublicID   string    `json:"public_id" db:"public_id"`   // public_id
+	Name       string    `json:"name" db:"name"`             // name
+	Prefrences string    `json:"prefrences" db:"prefrences"` // prefrences
 	// xo fields
 	_exists, _deleted bool
 }
