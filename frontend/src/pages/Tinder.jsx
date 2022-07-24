@@ -20,8 +20,8 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
     useEffect(() => {
         const getData = async () => {
-            console.log("http://3.96.135.171:8088/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment)
-            let res = await axios.get("http://3.96.135.171:8088/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment);
+            console.log("https://attractech.heimonsy.com/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment)
+            let res = await axios.get("https://attractech.heimonsy.com/api/activity/filter?prefrences=" + activity + "&costs=" + filterData.cost + "&times=" + filterData.timeInvestment);
             //TODO: Pass the activity and filterData to the API and filter the results
             console.log(res.data)
             setData(res.data)
