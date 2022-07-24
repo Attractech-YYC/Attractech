@@ -16,3 +16,6 @@ input, textarea {
     display: flexbox;
 }
 
+label {
+    margin: 10px;
+}

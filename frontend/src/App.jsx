@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export const App = () =>{
 
+
     const [currentPage, setCurrentPage] = useState("Landing");
     const [filterData, setFilterData] = useState({}); //{cost: "", timeInvestment: ""}
     const [activity, setActivity] = useState(""); //"Eat", "Artisans","Culture","Exercise","Adventures"
