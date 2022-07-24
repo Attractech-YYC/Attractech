@@ -7,15 +7,17 @@ function Activities() {
   const [ show, setShow ] = useState(false);
   const [ first, setFirst] = useState(true);
   const [ name, setName ] = useState("");
+  const [ desc, setDesc ] = useState("");
   const [ classify, setClassify ] = useState("");
-  const [ costs, setCosts ] = useState("");
-  const [ timeCommitment, setTimeCommitment ] = useState("");
+  const [ costs, setCosts ] = useState("Free");
+  const [ timeCommitment, setTimeCommitment ] = useState("15 mins");
   const [ activities, setActivities ] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleNameChange = (e) => setName(e.target.value);
   const handleClassifyChange = (e) => setClassify(e.target.value);
   const handleCostsChange = (e) => setCosts(e.target.value);
+  const handleDescChange = (e) => setDesc(e.target.value);
   const handleTimeCommitmenttsChange = (e) => setTimeCommitment(e.target.value);
 
   let user = localStorage.getItem("corp_name");
@@ -42,6 +44,7 @@ function Activities() {
       corporation_name: user,
       show: show,
       name: name,
+      description: desc,
       type: "permanent",
       classify: classify,
       costs: costs,
@@ -78,22 +81,47 @@ function Activities() {
         <Modal.Body>
 
     <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formName">
         <Form.Label>Name</Form.Label>
         <Form.Control type="email" placeholder="Enter Activity Name" value={name} onChange={handleNameChange} />
       </Form.Group>
 
+      <Form.Group className="mb-3" controlId="formDescription">
+        <Form.Label>Description</Form.Label>
+        <Form.Control as="textarea" rows={3} placeholder="Enter Description" value={desc} onChange={handleDescChange} />
+      </Form.Group>
+
       <Form.Group className="mb-3" controlId="formClassify">
         <Form.Label>Classify</Form.Label>
-        <Form.Control type="email" placeholder="Enter Classify" value={classify} onChange={handleClassifyChange} />
+        <Form.Select aria-label="Classify" value={classify} onChange={handleClassifyChange}>
+          <option value="food">food</option>
+          <option value="sport">sport</option>
+          <option value="entertainment">entertainment</option>
+          <option value="indoor">indoor</option>
+          <option value="outdoor">outdoor</option>
+        </Form.Select>
       </Form.Group>
+
       <Form.Group className="mb-3" controlId="formCosts">
         <Form.Label>Costs</Form.Label>
-        <Form.Control type="email" placeholder="Enter Costs" value={costs} onChange={handleCostsChange} />
+        <Form.Select aria-label="Costs" value={costs} onChange={handleCostsChange}>
+          <option value="Free">Free</option>
+          <option value="$25">$25</option>
+          <option value="$100">$100</option>
+          <option value="$150">$150</option>
+          <option value="$200">$200</option>
+        </Form.Select>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formTimeCommitment">
         <Form.Label>Time Commitment</Form.Label>
-        <Form.Control type="email" placeholder="Enter Time Commitment" value={timeCommitment} onChange={handleTimeCommitmenttsChange} />
+        <Form.Select aria-label="Time Commitment" value={timeCommitment} onChange={handleTimeCommitmenttsChange}>
+          <option value="15 mins">15 mins</option>
+          <option value="30 mins">30 mins</option>
+          <option value="1 hour">1 hour</option>
+          <option value="2 hours">2 hours</option>
+          <option value="3 hours">3 hours</option>
+          <option value="4+ hours">4+ hours</option>
+        </Form.Select>
       </Form.Group>
     </Form>
 
