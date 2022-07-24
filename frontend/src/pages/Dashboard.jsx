@@ -11,7 +11,7 @@ export const Dashboard = ({ movePage, setData }) => {
             <Navigation />
             <div className="row justify-content-center align-items-center">
                 <div className="text-center col-10 col-md-8">
-                    <div className="p-5 bg-light rounded-3">
+                    <div className="p-5 bg-light rounded-3 footer-space">
                         <h2 className="fw-bold fs-1 mb-4">What do you want to explore today?</h2>
                         {
                             activities.map((activity) => {
