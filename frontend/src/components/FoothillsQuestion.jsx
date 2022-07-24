@@ -3,9 +3,9 @@ import { Button } from "react-bootstrap"
 export const FoothillsQuestion = ({ title = "Foothills Question", name = "question", options = ["UAAAA", "UAAAAAJHHHH"], submit = false, formik = undefined, cycle = () => { }, imgSrc = "" }) => {
 
     return (
-        <div className="p-5 mb-4 bg-light rounded-3 text-center w-100">
-            <h3 className="card-title center mx-auto my-2 fw-bold fs-2 mb-3">{title}</h3>
-            <div className="flex">
+        <div>
+            <h3 className="center mx-auto my-2 fw-bold fs-2 mb-3">{title}</h3>
+            <div>
                 {options.map((option) => {
                     if (submit == true) {
                         return (
