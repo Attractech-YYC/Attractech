@@ -58,34 +58,38 @@ export const Landing = () => {
                     </div>
                 </div>
             </div>
+
+
             <form onSubmit={formik.handleSubmit}>
-                <div className="question_container">
+                <div className="container py-4">
                     {show[0] &&
-                    <>
-                        <FoothillsQuestion
-                            title="How much do you want to spend?"
-                            name="cost"
-                            options={["Free", "$25", "$50", "$100", "$150", "$200"]}
-                            formik={formik}
-                            imgSrc={status1}
-                            cycle={() => cycleQuestion()} />
-                        
-                    </>
+                        <>
+                            <FoothillsQuestion
+                                title="How much do you want to spend?"
+                                name="cost"
+                                options={["Free", "$25", "$50", "$100", "$150", "$200"]}
+                                formik={formik}
+                                imgSrc={status1}
+                                cycle={() => cycleQuestion()} />
+
+                        </>
                     }
                     {show[1] &&
-                    <>
-                        <FoothillsQuestion
-                            title="How long do you want to spend?"
-                            options={["15 mins", "30 mins", "1 hour", "2 hours", "3 hours", "4+ hours"]}
-                            name="timeInvestment"
-                            formik={formik}
-                            submit={true}
-                            imgSrc={status2}
-                            cycle={() => cycleQuestion()} />
-                    </>
+                        <>
+                            <FoothillsQuestion
+                                title="How long do you want to spend?"
+                                options={["15 mins", "30 mins", "1 hour", "2 hours", "3 hours", "4+ hours"]}
+                                name="timeInvestment"
+                                formik={formik}
+                                submit={true}
+                                imgSrc={status2}
+                                cycle={() => cycleQuestion()} />
+                        </>
                     }
                 </div>
             </form>
+
+
             <Footer />
         </div>
     )

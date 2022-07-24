@@ -1,25 +1,25 @@
 import { Button } from "react-bootstrap"
 
-export const FoothillsQuestion = ({ title = "Foothills Question", name = "question", options = ["UAAAA", "UAAAAAJHHHH"], submit = false, formik = undefined, cycle = () => {}, imgSrc=""}) => {
+export const FoothillsQuestion = ({ title = "Foothills Question", name = "question", options = ["UAAAA", "UAAAAAJHHHH"], submit = false, formik = undefined, cycle = () => { }, imgSrc = "" }) => {
 
     return (
-        <div className="card" style={{ width: 70 + "vw", paddingBottom: 1.5 + "%"}}>
-            <h5 className="card-title center mx-auto my-2">{title}</h5>
+        <div className="p-5 mb-4 bg-light rounded-3 text-center w-100">
+            <h3 className="card-title center mx-auto my-2 fw-bold fs-2 mb-3">{title}</h3>
             <div className="flex">
                 {options.map((option) => {
-                    if(submit == true){
+                    if (submit == true) {
                         return (
-                            <Button type="submit" className="tri-button" onClick={()=>{formik.values[name] = option;}}>{option}</Button>
+                            <Button type="submit" className="tri-button" onClick={() => { formik.values[name] = option; }}>{option}</Button>
                         )
                     }
-                    else{       
+                    else {
                         return (
-                            <Button className="tri-button" onClick={()=>{formik.values[name] = option; cycle()}}>{option}</Button>
+                            <Button className="tri-button" onClick={() => { formik.values[name] = option; cycle() }}>{option}</Button>
                         )
                     }
                 })}
             </div>
-            <img src={imgSrc} style={{marginLeft: 30 + "%", marginRight: 30 + "%"}}></img>
+            <img src={imgSrc} class="img-fluid w-25 mt-5"></img>
         </div>
     )
 }
