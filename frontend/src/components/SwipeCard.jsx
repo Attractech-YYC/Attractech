@@ -7,10 +7,18 @@ export const SwipeCard = (props) => {
     const [cardClicked, setCardClicked] = useState("block");
 
     function removeCard() {
+        if(props.index == 0){
+            console.log("Last Card")
+            props.movePage("List")
+        }
         setCardClicked("none");
     }
-
+    
     function keepCard() {
+        if(props.index == 0){
+            console.log("Last Card")
+            props.movePage("List")
+        }
         setCardClicked("none");
         props.setPref({name:props.name, desc:props.desc, cost:props.cost, time:props.time});
     }
