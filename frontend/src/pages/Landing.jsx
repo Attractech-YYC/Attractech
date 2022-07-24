@@ -7,9 +7,9 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 import Navigation from "../components/Navigation.jsx";
 import { Footer } from "../components/Footer";
-import { Swipe } from "../components/Swipe"
+import { Tinder } from "./Tinder"
 
-export const Landing = () => {
+export const Landing = ({movePage: setPage = () => {}, setData = () =>{} }) => {
 
     const [show, setShow] = useState([true, false]);
 
@@ -23,7 +23,9 @@ export const Landing = () => {
             timeInvestment: Yup.string().required("Required"),
         }),
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            //alert(JSON.stringify(values, null, 2));
+            setData(values);
+            setPage("Dashboard")
         }
     });
 
