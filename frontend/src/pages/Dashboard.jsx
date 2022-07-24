@@ -56,7 +56,7 @@ export const Dashboard = ({ movePage, setData }) => {
                                                                 return (
                                                                     <div className="card col-lg-3 col-10 mx-2 mb-4">
                                                                         <h3 className="fs-5 mt-2 mb-2">{item.name}</h3>
-                                                                        <p>{item.description}</p>
+                                                                        <p>{item.desc}</p>
                                                                         {/* <Button>{item.name}</Button> */}
                                                                     </div>
                                                                 )

@@ -24,7 +24,7 @@ export const List = ({ movePage, list }) => {
                                     return (
                                         <div className="card col-lg-3 col-10 mx-2 mb-4">
                                             <h3 className="fs-5 mt-2 mb-2">{item.name}</h3>
-                                            <p>{item.description}</p>
+                                            <p>{item.desc}</p>
                                         </div>
                                     )
                                 })
@@ -38,7 +38,7 @@ export const List = ({ movePage, list }) => {
 
             <div className="back-button col-8">
                 <div className="p-2 bg-light rounded-3 mt-5 w-25 mx-auto">
-                    <Button size="lg w-100" onClick={() => { movePage("Landing") }}>Back to Dashboard</Button>
+                    <Button size="lg w-100" onClick={() => { movePage("Dashboard") }}>Back to Dashboard</Button>
                 </div>
 
             </div>
