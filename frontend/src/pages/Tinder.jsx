@@ -26,7 +26,7 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
     return (
         <div className="bg-landing">
-            <Navigation />
+            <Navigation movePage={movePage} />
             <div className="row justify-content-center text-center vh-100">
                 <div className="col-8">
                     {
@@ -53,7 +53,7 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
                 <div className="back-button col-8">
                     <div className="p-2 bg-light rounded-3 mt-5 w-25 mx-auto">
-                        <Button size="lg w-100" onClick={() => { movePage("Dashboard") }}>Back</Button>
+                        <Button size="lg w-100" onClick={() => { movePage("Landing") }}>Back</Button>
                     </div>
 
                 </div>
