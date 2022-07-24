@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap"
-import { useState } from "react";
 
-export const FoothillsQuestion = ({ title = "Foothills Question", name = "question", options = ["UAAAA", "UAAAAAJHHHH"], submit = false, formik = undefined, cycle = () => { } }) => {
+export const FoothillsQuestion = ({ title = "Foothills Question", name = "question", options = ["UAAAA", "UAAAAAJHHHH"], submit = false, formik = undefined, cycle = () => {}, imgSrc=""}) => {
 
     return (
         <div className="card" style={{ width: 70 + "vw", paddingBottom: 1.5 + "%"}}>
@@ -20,6 +19,7 @@ export const FoothillsQuestion = ({ title = "Foothills Question", name = "questi
                     }
                 })}
             </div>
+            <img src={imgSrc} style={{marginLeft: 30 + "%", marginRight: 30 + "%"}}></img>
         </div>
     )
 }
