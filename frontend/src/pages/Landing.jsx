@@ -45,7 +45,7 @@ export const Landing = ({movePage: setPage = () => {}, setData = () =>{} }) => {
 
     return (
         <div className="bg-landing">
-            <Navigation />
+            <Navigation movePage={setPage}/>
             <div className="row justify-content-center align-items-center">
 
                 <div className="text-center col-10 col-lg-5 me-lg-2 mb-4">
