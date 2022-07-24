@@ -83,10 +83,28 @@ func CreateActivity(c *gin.Context) {
 	c.Status(http.StatusNoContent)
 }
 
+func trimStrArrays(strs []string) []string {
+	for i, v := range strs {
+		strs[i] = strings.TrimSpace(v)
+	}
+	return strs
+}
+
 func GetFilterActivity(c *gin.Context) {
-	prefrences := strings.Split(c.Query("prefrences"), ",")
-	costs := strings.Split(c.Query("costs"), ",")
-	times := strings.Split(c.Query("times"), ",")
+	var (
+		prefrences []string
+		costs      []string
+		times      []string
+	)
+	if str := strings.TrimSpace(c.Query("prefrences")); str != "" {
+		prefrences = trimStrArrays(strings.Split(str, ","))
+	}
+	if str := strings.TrimSpace(c.Query("costs")); str != "" {
+		costs = trimStrArrays(strings.Split(str, ","))
+	}
+	if str := strings.TrimSpace(c.Query("times")); str != "" {
+		times = trimStrArrays(strings.Split(str, ","))
+	}
 	activities, err := model.QueryAllActivitiesIn(c, model.GetDB(), prefrences, costs, times)
 	if err != nil {
 		fmt.Printf("query all activities in %v : %v", prefrences, err)

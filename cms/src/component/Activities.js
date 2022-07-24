@@ -94,11 +94,12 @@ function Activities() {
       <Form.Group className="mb-3" controlId="formClassify">
         <Form.Label>Classify</Form.Label>
         <Form.Select aria-label="Classify" value={classify} onChange={handleClassifyChange}>
-          <option value="food">food</option>
-          <option value="sport">sport</option>
-          <option value="entertainment">entertainment</option>
-          <option value="indoor">indoor</option>
-          <option value="outdoor">outdoor</option>
+          <option value="Food">Food</option>
+          <option value="Sport">Sport</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Culture">Culture</option>
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
         </Form.Select>
       </Form.Group>
 

@@ -3,6 +3,7 @@ package model
 import (
 	"context"
 	"database/sql"
+	"log"
 	"strings"
 	"time"
 
@@ -53,14 +54,13 @@ func (a *Activity) ToModelResponse() *ActivityResponse {
 }
 
 func BatchToActivityResponse(activities []*Activity) []*ActivityResponse {
-	var rets []*ActivityResponse
+	rets := make([]*ActivityResponse, 0, len(activities))
 	for _, v := range activities {
 		rets = append(rets, v.ToModelResponse())
 	}
 	return rets
 
 }
-
 func QueryAllActivitiesIn(ctx context.Context, db *sqlx.DB, prefrences, costs, times []string) ([]*Activity, error) {
 	var (
 		wheres []string
@@ -89,6 +89,7 @@ func QueryAllActivitiesIn(ctx context.Context, db *sqlx.DB, prefrences, costs, t
 	if err != nil {
 		return nil, err
 	}
+	log.Printf("%s ;;; %v\n", sqlStr, args)
 
 	var rets []*Activity
 	err = sqlx.Select(db, &rets, sqlStr, args...)
