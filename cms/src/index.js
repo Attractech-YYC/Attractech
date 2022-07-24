@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 
-axios.defaults.baseURL = 'http://3.96.135.171:8088/api';
+axios.defaults.baseURL = 'https://attractech.heimonsy.com/api';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

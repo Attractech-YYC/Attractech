@@ -42,12 +42,12 @@ class Login extends React.Component {
           <Col> </Col>
           <Col>
 
-      <Form>
+      <Form onSubmit={this.onSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Corpration Name</Form.Label>
           <Form.Control value={this.state.corpName} onChange={this.onCorpNameChange} placeholder="Enter Corpration Name" />
         </Form.Group>
-        <Button variant="primary" type="button" onClick={this.onSubmit}>
+        <Button variant="primary" type="submit" >
           Login
         </Button>
       </Form>
