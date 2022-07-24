@@ -22,6 +22,7 @@ func CreateActivitiesRoutes(r gin.IRouter) {
 type CreateActivityRequest struct {
 	CorporationName string     `json:"corporation_name"`
 	Name            string     `json:"name"`
+	Description     string     `json:"description"`
 	Type            string     `json:"type"`
 	Classify        string     `json:"classify"`
 	StartAt         *time.Time `json:"start_at"`
@@ -59,6 +60,7 @@ func CreateActivity(c *gin.Context) {
 		CreatedAt:       time.Now(),
 		UpdatedAt:       time.Now(),
 		Name:            req.Name,
+		Description:     req.Description,
 		Type:            req.Type,
 		Classify:        req.Classify,
 		CorporationName: corp.Name,
@@ -83,7 +85,9 @@ func CreateActivity(c *gin.Context) {
 
 func GetFilterActivity(c *gin.Context) {
 	prefrences := strings.Split(c.Query("prefrences"), ",")
-	activities, err := model.QueryAllActivitiesIn(c, model.GetDB(), prefrences)
+	costs := strings.Split(c.Query("costs"), ",")
+	times := strings.Split(c.Query("times"), ",")
+	activities, err := model.QueryAllActivitiesIn(c, model.GetDB(), prefrences, costs, times)
 	if err != nil {
 		fmt.Printf("query all activities in %v : %v", prefrences, err)
 		util.AbortInternalError(c)

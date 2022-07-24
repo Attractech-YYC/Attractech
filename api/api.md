@@ -82,6 +82,7 @@ Request Body:
 ```json
 {
 	"name": "",
+	"description": "",
 	// persistent: long term activities.
 	// temporary: temporary activiteis.
 	"type": "",
@@ -114,6 +115,7 @@ Request Body:
 [
 	{
 		"name": "",
+		"description": "",
 		// persistent: long term activities.
 		// temporary: temporary activiteis.
 		"type": "",
