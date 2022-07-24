@@ -10,8 +10,8 @@ function Navigation({ movePage }) {
                 {/* <Navbar.Toggle aria-controls="navbarScroll" /> */}
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="fs-5 ms-auto">
-                        <Button onClick={() =>{movePage("Landing")}}>Home</Button>
-                        <Button onClick={() =>{movePage("Create")}}>Create</Button>
+                        <Button className="me-3" onClick={() => { movePage("Landing") }}>Home</Button>
+                        <Button onClick={() => { movePage("Create") }}>Create</Button>
                         {/* <Link className="nav-link" to="/">Home</Link>
                         <Link className="nav-link" to="/app">App</Link> */}
                     </Nav>

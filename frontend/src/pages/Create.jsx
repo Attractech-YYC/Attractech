@@ -9,21 +9,25 @@ import skyline from "../assets/images/skyline.png";
 export const Create = ({movePage}) => {
     const [corporation, setCorporation] = useState('');
     const [name, setName] = useState('');
-    const [type, setType] = useState('');
+    // const [type, setType] = useState('');
     const [cost, setCost] = useState('');
     const [timeCommitment, setTimeCommitment] = useState('');
     const [classify, setClassify] = useState('');
 
     const handleSubmit = async () => {
         const res = await axios.post('http://3.96.135.171:8088/api/activity', {
-            corporation: corporation,
+            corporation_name: corporation,
             name: name,
             type: "permanent",
             classify: classify,
-            costs: costs,
-            timeCommitment: timeCommitment,
+            costs: cost,
+            time_commitment: timeCommitment,
         })
-        console.log(res)
+        
+        const res2 = await axios.get('http://3.96.135.171:8088/api/corporation/'+corporation+'/activity')
+        console.log(res2)
+        
+      
     }
 
     return (
@@ -39,8 +43,8 @@ export const Create = ({movePage}) => {
                                     <input type='text' value={corporation} onChange={(e) => setCorporation(e.target.value)} />
                                     <label className="fw-bold fs-3">Name of the Event</label>
                                     <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
-                                    <label className="fw-bold fs-3">Type</label>
-                                    <input type='text' value={type} onChange={(e) => setType(e.target.value)} />
+                                    {/* <label className="fw-bold fs-3">Type</label>
+                                    <input type='text' /> */}
                                     <label className="fw-bold fs-3">Classify</label>
                                     <select class="form-select" id="dropdown-basic-button" value={classify} onChange={(e) => {setClassify(e.target.value); }} >
                                         <option value="action">Action1</option>

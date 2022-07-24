@@ -45,7 +45,7 @@ export const Landing = ({ movePage: setPage = () => { }, setData = () => { } }) 
     return (
         <div className="bg-landing">
             <Navigation movePage={setPage} />
-            <div className="row mx-0 justify-content-center align-items-center">
+            <div className="row mx-0 justify-content-center">
 
                 <div className="text-center col-10 col-lg-5 me-lg-2 mb-4">
                     <div className="p-5 bg-light rounded-3 footer-space">
@@ -92,18 +92,8 @@ export const Landing = ({ movePage: setPage = () => { }, setData = () => { } }) 
                             }
                         </form>
                     </div>
-
                 </div>
-
-
             </div>
-
-
-
-
-
-
-
             <Footer />
         </div >
     )
