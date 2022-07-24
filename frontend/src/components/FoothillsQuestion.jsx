@@ -9,17 +9,17 @@ export const FoothillsQuestion = ({ title = "Foothills Question", name = "questi
                 {options.map((option) => {
                     if (submit == true) {
                         return (
-                            <Button type="submit" className="tri-button" onClick={() => { formik.values[name] = option; }}>{option}</Button>
+                            <Button key={option} type="submit" className="tri-button" onClick={() => { formik.values[name] = option; }}>{option}</Button>
                         )
                     }
                     else {
                         return (
-                            <Button className="tri-button" onClick={() => { formik.values[name] = option; cycle() }}>{option}</Button>
+                            <Button key={option}  className="tri-button" onClick={() => { formik.values[name] = option; cycle() }}>{option}</Button>
                         )
                     }
                 })}
             </div>
-            <img src={imgSrc} class="img-fluid w-25 mt-5"></img>
+            <img src={imgSrc} className="img-fluid w-25 mt-5"></img>
         </div>
     )
 }
