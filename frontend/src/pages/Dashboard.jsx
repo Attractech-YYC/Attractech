@@ -20,9 +20,9 @@ export const Dashboard = ({ movePage, setData }) => {
     return (
         <div className="bg-landing">
             <Navigation movePage={movePage} />
-            <div className="row justify-content-center align-items-center">
+            <div className="row justify-content-center">
                 <div className="text-center col-10 col-md-8">
-                    <div className="p-5 bg-light rounded-3 footer-space">
+                    <div className="p-5 bg-light rounded-3 mb-4">
                         <h2 className="fw-bold fs-1 mb-4">What do you want to explore today?</h2>
                         {
                             activities.map((activity) => {
@@ -31,48 +31,56 @@ export const Dashboard = ({ movePage, setData }) => {
                                 )
                             })
                         }
-                        <hr className="mb-4" />
-                        <div>
-                            <Button className="mt-3 dashboard-button" onClick={() => { movePage("Landing") }}>Start Over</Button>
-                        </div>
 
                     </div>
 
                 </div>
             </div>
-            <div>
-                <h2>Your previous lists!</h2>
-                <div className="list-container">
-                    {
-                        savedLists.length != 0 &&
-                        <>
-
+            <div className="row justify-content-center">
+                <div className="text-center col-10 col-md-8">
+                    <div className="p-5 bg-light rounded-3 footer-space">
+                        <h2 className="fw-bold fs-1">Your previous lists</h2>
+                        <div className="list-container">
                             {
-                                savedLists.map((item) => {
-                                    return (
-                                        <div className="list">
-                                            {
-                                                item.map((item) => {
-                                                    return (
-                                                        <div className="list-item">
-                                                            <h3>{item.name}</h3>
-                                                            <p>{item.description}</p>
-                                                            {/* <Button>{item.name}</Button> */}
-                                                        </div>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    )
-                                })
+                                savedLists.length != 0 &&
+                                <>
+
+                                    {
+                                        savedLists.map((item) => {
+                                            return (
+                                                <div className="list">
+                                                    {
+                                                        item.map((item) => {
+                                                            return (
+                                                                <div className="list-item">
+                                                                    <h3>{item.name}</h3>
+                                                                    <p>{item.description}</p>
+                                                                    {/* <Button>{item.name}</Button> */}
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </>
                             }
-                        </>
-                    }
-                    {
-                        savedLists.length == 0 &&
-                        <p>You don't have any saved lists!</p>
-                    }
+                            {
+                                savedLists.length == 0 &&
+                                <p>You don't have any saved lists!</p>
+                            }
+                        </div>
+                    </div>
                 </div>
+
+
+            </div>
+            <div className="back-button col-8">
+                <div className="p-2 bg-light rounded-3 mt-5 w-25 mx-auto">
+                    <Button size="lg w-100" onClick={() => { movePage("Landing") }}>Back</Button>
+                </div>
+
             </div>
             <Footer />
 

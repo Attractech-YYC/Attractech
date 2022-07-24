@@ -35,7 +35,7 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
     return (
         <div className="bg-landing">
-            <Navigation />
+            <Navigation movePage={movePage} />
             <div className="row justify-content-center text-center vh-100">
                 <div className="col-8">
                     {
