@@ -2,7 +2,6 @@ import { SwipeCard } from "../components/SwipeCard"
 import { useState } from "react";
 import { useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { Spinner } from "react-bootstrap";
 import axios from "axios";
 import Navigation from "../components/Navigation";
 import { Footer } from "../components/Footer";
@@ -13,6 +12,8 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
 
     const [data, setData] = useState(undefined);
 
+    const [currentList, setCurrentList] = useState([]);
+
     useEffect(() => {
         const getData = async () => {
             let res = await axios.get("http://3.96.135.171:8088/api/activity/filter?prefrences=" + activity)
@@ -22,6 +23,14 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
         }
         getData()
     }, [])
+
+    const setLists =(item)=>{
+        let array2 = currentList
+        array2.push(item)
+        setCurrentList(array2)
+        console.log(currentList)
+        saveData(item)
+    }
 
 
     return (
@@ -38,13 +47,12 @@ export const Tinder = ({ activity, filterData, movePage, saveData, list }) => {
                             {data.map((element, index) => {
                                 return <SwipeCard
                                     key={index}
-                                    setPref={saveData}
+                                    setPref={setLists}
                                     name={element.name}
                                     desc={element.description}
                                     cost={element.costs}
                                     time={element.time_commitment}
                                     index={index} />
-
                             })}
                         </div>
                     }
