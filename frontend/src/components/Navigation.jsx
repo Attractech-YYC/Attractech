@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 
 function Navigation() {
     return (
-        <Navbar className="mb-4 header" bg="dark" variant="dark" expand="md">
+        <Navbar className="mb-4 header mt-auto" bg="dark" variant="dark" expand="md">
             <div className="container">
                 <Navbar.Brand className=" fs-3 brand-name navbar-brand" href="#home">Attractech</Navbar.Brand>
                 {/* <Navbar.Toggle aria-controls="navbarScroll" /> */}
