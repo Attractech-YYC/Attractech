@@ -39,28 +39,32 @@ export const Dashboard = ({ movePage, setData }) => {
             <div className="row justify-content-center">
                 <div className="text-center col-10 col-md-8">
                     <div className="p-5 bg-light rounded-3 footer-space">
-                        <h2 className="fw-bold fs-1">Your previous lists</h2>
+                        <h2 className="fw-bold fs-1 mb-4">Your previous lists</h2>
                         <div className="list-container">
                             {
                                 savedLists.length != 0 &&
                                 <>
 
                                     {
-                                        savedLists.map((item) => {
+                                        savedLists.map((item, index) => {
                                             return (
-                                                <div className="list">
-                                                    {
-                                                        item.map((item) => {
-                                                            return (
-                                                                <div className="list-item">
-                                                                    <h3>{item.name}</h3>
-                                                                    <p>{item.description}</p>
-                                                                    {/* <Button>{item.name}</Button> */}
-                                                                </div>
-                                                            )
-                                                        })
-                                                    }
+                                                <div className="card mb-4">
+                                                    <h3 className="mb-3 mt-3">List {index + 1}</h3>
+                                                    <div className="row justify-content-center align-items-stretch">
+                                                        {
+                                                            item.map((item) => {
+                                                                return (
+                                                                    <div className="card col-lg-3 col-10 mx-2 mb-4">
+                                                                        <h3 className="fs-5 mt-2 mb-2">{item.name}</h3>
+                                                                        <p>{item.description}</p>
+                                                                        {/* <Button>{item.name}</Button> */}
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
                                                 </div>
+
                                             )
                                         })
                                     }
