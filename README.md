@@ -10,6 +10,10 @@ This is a web application that allows tourists, and people who are new to downto
 - Bootstrap
 - Vite
 
+### Backend
+- Go
+- SQL Database
+
 ### Project Directories
 Build this project as a [Monorepo](https://en.wikipedia.org/wiki/Monorepo).
 
